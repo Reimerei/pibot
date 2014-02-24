@@ -11,4 +11,4 @@ class Sound() :
 
 		baseDir = os.path.dirname(os.path.realpath(__file__)) + "/sounds/" + folderName	
 		audio = baseDir + "/" + random.choice(os.listdir(baseDir)) 
-		subprocess.call(["mpg123",audio])
+		subprocess.call(["mplayer",audio])
