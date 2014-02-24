@@ -6,7 +6,7 @@ from jabberbot import JabberBot, botcmd
 from datetime import datetime
 import subprocess
 import re
-import config_cameo
+from config import *
 
 class MUCJabberBot(JabberBot):
 
