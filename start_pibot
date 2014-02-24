@@ -67,6 +67,16 @@ class PiBot(MUCJabberBot):
         self.send_simple_reply(mess, "MOEP!")
         sound = Sound()
         sound.play_from_dir("moep")
+    
+    @botcmd
+    def project(self, mess, args):
+        if "SUCCESS" in args:
+            sound = Sound()
+            sound.play_from_dir("win")
+        elif "FAIL" in args:
+            sound = Sound()
+            sound.play_from_dir("fail")
+
 
 
 if __name__ == '__main__':
