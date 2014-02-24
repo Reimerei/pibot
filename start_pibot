@@ -6,6 +6,7 @@ from jabberbot import JabberBot, botcmd
 from datetime import datetime
 import subprocess
 import re
+import config_cameo
 
 class MUCJabberBot(JabberBot):
 
@@ -61,7 +62,9 @@ class PiBot(MUCJabberBot):
         text = subprocess.check_output(["fortune","-s"])
         self.send_simple_reply(mess, text.replace('\n',' '))
 
-
+    @botcmd
+    def moep(self, mess, args):
+        self.send_simple_reply(mess, "MOEP!")
 
 
 if __name__ == '__main__':
