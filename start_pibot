@@ -68,15 +68,15 @@ class PiBot(MUCJabberBot):
         sound = Sound()
         sound.play_from_dir("moep")
 	
-	@botcmd
-	def muhaha(self, mess, args):
-		self.send_simple_reply(mess, "MUHAHA!")
-		sound = Sound()
-        sound.play_misc("muhaha.wave")
+    @botcmd
+    def muhaha(self, mess, args):
+	self.send_simple_reply(mess, "MUHAHA!")
+	sound = Sound()
+        sound.play_misc("muhaha.wav")
 
-	@botcmd
-	def reanimate(self, mess, args):
-		sound = Sound()
+    @botcmd
+    def reanimate(self, mess, args):
+	sound = Sound()
         sound.play_misc("def.mp3")
         
     @botcmd

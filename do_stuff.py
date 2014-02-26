@@ -15,6 +15,6 @@ class Sound() :
 
 	def play_misc(self, fileName):
 
-        baseDir = os.path.dirname(os.path.realpath(__file__)) + "/sounds/misc"
-        audio = baseDir + "/" +fileName
-        subprocess.call(["mplayer",audio])
+        	baseDir = os.path.dirname(os.path.realpath(__file__)) + "/sounds/misc"
+        	audio = baseDir + "/" +fileName
+        	subprocess.call(["mplayer",audio])
