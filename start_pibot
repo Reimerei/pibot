@@ -78,6 +78,15 @@ class PiBot(MUCJabberBot):
 	def reanimate(self, mess, args):
 		sound = Sound()
         sound.play_misc("def.mp3")
+        
+    @botcmd
+    def project(self, mess, args):
+        if "SUCCESS" in args:
+            sound = Sound()
+            sound.play_from_dir("win")
+        elif "FAIL" in args:
+            sound = Sound()
+            sound.play_from_dir("fail")
 
 if __name__ == '__main__':
 
