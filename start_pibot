@@ -83,6 +83,10 @@ class PiBot(MUCJabberBot):
         elif "FAIL" in args:
             play_from_dir("fail")
 
+    @botcmd
+    def slap(self, mess, args):
+        play_misc("slap.wav")
+
 if __name__ == '__main__':
 
     mucbot = PiBot(username, password, only_direct=False)
