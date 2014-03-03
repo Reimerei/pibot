@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # dependencies python-xmpp mpg123 fortune
 
-from do_stuff import Sound
+from config import *
+from do_stuff import *
 from jabberbot import JabberBot, botcmd
-from datetime import datetime
+import datetime
 import subprocess
 import re
-from config import *
+import logging
+logging.basicConfig()
 
 class MUCJabberBot(JabberBot):
 
@@ -49,13 +51,11 @@ class PiBot(MUCJabberBot):
 
     @botcmd
     def fail(self, mess, args):
-        sound = Sound()
-        sound.play_from_dir("fail")
+        play_from_dir("fail")
 
     @botcmd
     def win(self, mess, args):
-        sound = Sound()
-        sound.play_from_dir("win")
+        play_from_dir("win")
     
     @botcmd
     def fortune(self, mess, args):
@@ -65,28 +65,23 @@ class PiBot(MUCJabberBot):
     @botcmd
     def moep(self, mess, args):
         self.send_simple_reply(mess, "MOEP!")
-        sound = Sound()
-        sound.play_from_dir("moep")
-	
+        play_from_dir("moep")
+
     @botcmd
     def muhaha(self, mess, args):
-	self.send_simple_reply(mess, "MUHAHA!")
-	sound = Sound()
-        sound.play_misc("muhaha.wav")
+        self.send_simple_reply(mess, "MUHAHA!")
+        play_misc("muhaha.wav")
 
     @botcmd
     def reanimate(self, mess, args):
-	sound = Sound()
-        sound.play_misc("def.mp3")
+        play_misc("def.mp3")
         
     @botcmd
     def project(self, mess, args):
-        if "SUCCESS" in args:
-            sound = Sound()
-            sound.play_from_dir("win")
+        if "SUCCESS" in args | "FIXED" in args :
+            play_from_dir("win")
         elif "FAIL" in args:
-            sound = Sound()
-            sound.play_from_dir("fail")
+            play_from_dir("fail")
 
 if __name__ == '__main__':
 
