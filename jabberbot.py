@@ -799,10 +799,14 @@ class JabberBot(object):
             connect_callback()
         self.__lastping = time.time()
 
+        count = 1
+
         while not self.__finished:
             try:
                 conn.Process(1)
                 self.idle_proc()
+                self.log.info('running:' + count)
+                count  += 1
             except KeyboardInterrupt:
                 self.log.info('bot stopped by user request. '\
                     'shutting down.')
