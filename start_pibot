@@ -8,7 +8,11 @@ import datetime
 import subprocess
 import re
 import logging
-logging.basicConfig()
+logging.basicConfig(filename="pibot.log",
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 
 class MUCJabberBot(JabberBot):
 

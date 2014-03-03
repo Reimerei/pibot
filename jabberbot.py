@@ -805,7 +805,7 @@ class JabberBot(object):
             try:
                 conn.Process(1)
                 self.idle_proc()
-                self.log.info('running:' + count)
+                self.log.info('running:' + str(count))
                 count  += 1
             except KeyboardInterrupt:
                 self.log.info('bot stopped by user request. '\
