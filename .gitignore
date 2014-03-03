@@ -3,3 +3,4 @@
 /config_cameo.py
 *.ipr
 *.iws
+*.log

@@ -82,7 +82,7 @@ class PiBot(MUCJabberBot):
         
     @botcmd
     def project(self, mess, args):
-        if ("SUCCESS" in args) or ( "FIXED" in args) :
+        if ("SUCCESS" in args) or ("FIXED" in args) :
             play_from_dir("win")
         elif "FAIL" in args:
             play_from_dir("fail")
