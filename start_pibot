@@ -1,12 +1,18 @@
 #!/usr/bin/env python
 # dependencies python-xmpp mpg123 fortune
 
-from do_stuff import Sound
+from config import *
+from do_stuff import *
 from jabberbot import JabberBot, botcmd
-from datetime import datetime
+import datetime
 import subprocess
 import re
-from config import *
+import logging
+logging.basicConfig(filename="pibot.log",
+                    filemode='a',
+                    format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
+                    datefmt='%H:%M:%S',
+                    level=logging.DEBUG)
 
 class MUCJabberBot(JabberBot):
 
@@ -49,13 +55,11 @@ class PiBot(MUCJabberBot):
 
     @botcmd
     def fail(self, mess, args):
-        sound = Sound()
-        sound.play_from_dir("fail")
+        play_from_dir("fail")
 
     @botcmd
     def win(self, mess, args):
-        sound = Sound()
-        sound.play_from_dir("win")
+        play_from_dir("win")
     
     @botcmd
     def fortune(self, mess, args):
@@ -65,19 +69,27 @@ class PiBot(MUCJabberBot):
     @botcmd
     def moep(self, mess, args):
         self.send_simple_reply(mess, "MOEP!")
-        sound = Sound()
-        sound.play_from_dir("moep")
+        play_from_dir("moep")
 
     @botcmd
     def muhaha(self, mess, args):
         self.send_simple_reply(mess, "MUHAHA!")
-        sound = Sound()
-        sound.play_misc("muhaha.wave")
+        play_misc("muhaha.wav")
 
     @botcmd
-    def sani(self, mess, args):
-        sound = Sound()
-        sound.play_misc("def.mp3")
+    def reanimate(self, mess, args):
+        play_misc("def.mp3")
+        
+    @botcmd
+    def project(self, mess, args):
+        if ("SUCCESS" in args) or ("FIXED" in args) :
+            play_from_dir("win")
+        elif "FAIL" in args:
+            play_from_dir("fail")
+
+    @botcmd
+    def slap(self, mess, args):
+        play_misc("slap.wav")
 
 if __name__ == '__main__':
 

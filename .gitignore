@@ -1,3 +1,6 @@
 /*.pyc
 /config.py
 /config_cameo.py
+*.ipr
+*.iws
+*.log
