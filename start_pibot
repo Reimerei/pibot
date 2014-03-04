@@ -77,12 +77,12 @@ class PiBot(MUCJabberBot):
         play_misc("muhaha.wav")
 
     @botcmd
-    def reanimate(self, mess, args):
+    def sani(self, mess, args):
         play_misc("def.mp3")
         
     @botcmd
     def project(self, mess, args):
-        if ("SUCCESS" in args) or ("FIXED" in args) :
+        if ("SUCCESS" in args) or ("FIXED" in args):
             play_from_dir("win")
         elif "FAIL" in args:
             play_from_dir("fail")
@@ -90,6 +90,12 @@ class PiBot(MUCJabberBot):
     @botcmd
     def slap(self, mess, args):
         play_misc("slap.wav")
+
+    @botcmd
+    def sg(self, mess, args):
+        play_misc("super-geil.mp3")
+
+
 
 if __name__ == '__main__':
 
