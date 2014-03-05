@@ -806,6 +806,15 @@ class JabberBot(object):
                 conn.Process(1)
                 self.idle_proc()
                 self.log.info('running:' + str(count))
+
+                #Check connection every 10 tries
+                if count % 10 == 0:
+                    conn = self.connect()
+                    if conn:
+                        self.log.info('bot connected. serving forever.')
+                    else:
+                        self.log.warn('could not connect to server - aborting.')
+                        return
                 count  += 1
             except KeyboardInterrupt:
                 self.log.info('bot stopped by user request. '\
