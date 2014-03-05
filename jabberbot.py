@@ -88,7 +88,7 @@ class JabberBot(object):
     MSG_ERROR_OCCURRED = 'Sorry for your inconvenience. '\
         'An unexpected error occurred.'
 
-    PING_FREQUENCY = 0  # Set to the number of seconds, e.g. 60.
+    PING_FREQUENCY = 60  # Set to the number of seconds, e.g. 60.
     PING_TIMEOUT = 2  # Seconds to wait for a response.
 
     def __init__(self, username, password, res=None, debug=False,
@@ -761,12 +761,12 @@ class JabberBot(object):
         if self.PING_FREQUENCY \
             and time.time() - self.__lastping > self.PING_FREQUENCY:
             self.__lastping = time.time()
-            #logging.debug('Pinging the server.')
+            logging.debug('Pinging the server.')
             ping = xmpp.Protocol('iq', typ='get', \
                 payload=[xmpp.Node('ping', attrs={'xmlns':'urn:xmpp:ping'})])
             try:
                 res = self.conn.SendAndWaitForResponse(ping, self.PING_TIMEOUT)
-                #logging.debug('Got response: ' + str(res))
+                logging.debug('Got response: ' + str(res))
                 if res is None:
                     self.on_ping_timeout()
             except IOError, e:
@@ -805,17 +805,6 @@ class JabberBot(object):
             try:
                 conn.Process(1)
                 self.idle_proc()
-                self.log.info('running:' + str(count))
-
-                #Check connection every 10 tries
-                if count % 10 == 0:
-                    conn = self.connect()
-                    if conn:
-                        self.log.info('bot connected. serving forever.')
-                    else:
-                        self.log.warn('could not connect to server - aborting.')
-                        return
-                count  += 1
             except KeyboardInterrupt:
                 self.log.info('bot stopped by user request. '\
                     'shutting down.')
