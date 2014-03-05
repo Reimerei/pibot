@@ -89,7 +89,7 @@ class JabberBot(object):
         'An unexpected error occurred.'
 
     PING_FREQUENCY = 60  # Set to the number of seconds, e.g. 60.
-    PING_TIMEOUT = 2  # Seconds to wait for a response.
+    PING_TIMEOUT = 10  # Seconds to wait for a response.
 
     def __init__(self, username, password, res=None, debug=False,
             privatedomain=False, acceptownmsgs=False, handlers=None,
