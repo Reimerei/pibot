@@ -99,6 +99,11 @@ class PiBot(MUCJabberBot):
     def yippie(self, mess, args):
          play_misc("yippi.mp3")
 
+    @botcmd
+    def yippee(self, mess, args):
+        play_misc("yippi.mp3")
+
+
 
 
 if __name__ == '__main__':
