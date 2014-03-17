@@ -1,5 +1,5 @@
 # credentials
-username = ''
-password = ''
-nickname = ''
-chatroom = ''  
+username = 'pibot@jabber.ccc.de'
+password = 'pibot'
+nickname = 'pibot'
+chatroom = 'cameoteam@conference.jabber.ccc.de'
