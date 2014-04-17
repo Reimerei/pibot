@@ -86,6 +86,8 @@ class PiBot(MUCJabberBot):
             play_from_dir("win")
         elif "FAIL" in args:
             play_from_dir("fail")
+	elif "UNSTABLE" in args:
+            play_from_dir("fail")
 
     @botcmd
     def slap(self, mess, args):
